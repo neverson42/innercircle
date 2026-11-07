@@ -71,9 +71,7 @@ It doesn't attempt to judge the quality or accuracy of content. It simply gives 
 
 The internet was supposed to connect us with people and communities we care about. Somewhere along the way, platforms started deciding what we should see.
 
-InnerCircle is a small attempt to take some of that control back.
-
-**Your network. Your preferences. Your feed.**
+InnerCircle is my attempt to take some of that control back.
 
 ## Status
 
