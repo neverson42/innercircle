@@ -32,10 +32,8 @@ Once installed, InnerCircle does nothing until you build the database.
 
 **A few things to know:**
 
-- You must be logged into Facebook for the database build to work.
-- Keep the browser open while the database is being built.
 - Building the database creates a fresh snapshot of your current Facebook connections. It does not permanently accumulate old or removed connections.
-- You can rebuild the database whenever you want to refresh your trusted network. Do this whenever you add friends, join groups, or follow new pages.
+- You can rebuild the database whenever you want to refresh your trusted network. Do this whenever you add or remove friends, join or leave groups, or follow or unfollow pages to ensure your database is up to date.
 
 Once the database is built, just browse Facebook normally. InnerCircle works in the background.
 
