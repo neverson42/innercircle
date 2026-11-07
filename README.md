@@ -14,11 +14,7 @@ InnerCircle builds a local database of your Facebook connections, including:
 - **Groups** — Facebook groups you've joined.
 - **Following** — Pages and people you choose to follow.
 
-Using this database, InnerCircle evaluates posts in your Facebook feed against your own trusted network.
-
-For example, if a friend shares something from a page you don't follow, InnerCircle can identify that distinction and hide the post by default, giving you the option to reveal it.
-
-The goal isn't to decide what you should see. It's to give you the tools to decide for yourself.
+Using this database, InnerCircle evaluates posts in your Facebook feed against your own trusted network, hiding everything that you dont explicitly choose to see.
 
 ## Privacy First
 
@@ -34,7 +30,7 @@ Your trusted network belongs to you.
 
 ## What InnerCircle Is Not
 
-InnerCircle is not an ad blocker, a content moderation service, or an algorithm designed to tell you what matters.
+InnerCircle is not an ad blocker (though it does give you that as a side-effect), a content moderation service, or an algorithm designed to tell you what matters.
 
 It doesn't attempt to judge the quality or accuracy of content. It simply gives you greater control over which sources you consider part of your trusted network.
 
@@ -48,9 +44,14 @@ InnerCircle is a small attempt to take some of that control back.
 
 ## Status
 
-InnerCircle is an independent, community-oriented project under active development.
+InnerCircle is an independent, mostly-chatgpt-generated project developed by a guy who got sick of seeing fake, AI generated images of Jason Mamoa visiting every mom and pop shop within 100 miles of where he lives.
 
-Facebook frequently changes its interface, and those changes may affect extension functionality. Compatibility and functionality are subject to ongoing development.
+Facebook frequently changes its interface, and those changes may affect extension functionality. Compatibility and functionality are subject to ongoing development. I'll try to stay on top of it because, mostly, this is made for me. I use Brave browser (chromium based) and it is verified to work there. It should work on any chromium browser, but I dont intend to make any browser-specific changes. If it doesnt work for you, clone the repo and make something that does.
+
+## Download
+
+I am not a verified developer and don't want to pay the $5 to become one, so this extension needs to be run in developer mode.
+[**Download InnerCircle.zip**](https://github.com/neverson42/innercircle/raw/refs/heads/main/InnerCircle.zip), extract the files to a folder, and load it as an unpacked extension.
 
 ## Disclaimer
 
