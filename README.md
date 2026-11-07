@@ -82,7 +82,6 @@ InnerCircle is an independent, mostly-chatgpt-generated project developed by a g
 Facebook frequently changes its interface, and those changes may affect extension functionality. Compatibility and functionality are subject to ongoing development. I'll try to stay on top of it because, mostly, this is made for me. I use Brave browser (chromium based) and it is verified to work there. It should work on any chromium browser, but I dont intend to make any browser-specific changes. If it doesnt work for you, clone the repo and make something that does.
 
 I am not a verified developer and don't want to pay the $5 to become one, so this extension needs to be run in developer mode.
-[**Download InnerCircle.zip**](https://github.com/neverson42/innercircle/raw/refs/heads/main/InnerCircle.zip), extract the files to a folder, and load it as an unpacked extension.
 
 ## Disclaimer
 
