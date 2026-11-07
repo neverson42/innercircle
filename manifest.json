@@ -1,0 +1,47 @@
+
+{
+  "manifest_version": 3,
+  "name": "InnerCircle",
+  "version": "1.0.0",
+  "description": "Your friends. Your groups. Your follows. Your control.",
+  "author": "neverson42",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "icons": {
+    "16": "icon_16.png",
+    "32": "icon_32.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+    },
+  "action": {
+    "default_icon": {
+  	"16": "icon_16.png",
+	"32": "icon_32.png"
+    }
+  },
+  "host_permissions": [
+    "https://www.facebook.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.facebook.com/*"
+      ],
+      "js": [
+        "feed.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "InnerCircle",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+  }

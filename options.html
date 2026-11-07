@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InnerCircle Settings</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      max-width: 1000px;
+      margin: 24px auto;
+      padding: 0 20px;
+      font: 14px Arial, sans-serif;
+      line-height: 1.4;
+      color: #222;
+      background: #f7f8fa;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 26px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 6px 0;
+    }
+
+    .tagline {
+      margin-top: 0;
+      color: #555;
+    }
+
+    .panel {
+      min-width: 0;
+      margin-top: 14px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .totals {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .total-label {
+      color: #555;
+      font-size: 12px;
+    }
+
+    #hiddenCount {
+      margin: 2px 0 0;
+      font-size: 22px;
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    #scrollingDistance {
+      margin: 2px 0 0;
+      color: #555;
+      font-size: 16px;
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .settings-grid .panel {
+      display: flex;
+      flex-direction: column;
+      margin-top: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    button {
+      padding: 9px 14px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      background: #fff;
+      color: #222;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #eee;
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: 0.6;
+    }
+
+    #build {
+      background: #1877f2;
+      border-color: #1877f2;
+      color: #fff;
+    }
+
+    #build:hover {
+      background: #166fe5;
+    }
+
+    .note,
+    .setting-description {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .database-controls {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .database-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    #status {
+      margin: 0;
+      font-weight: bold;
+      white-space: pre-line;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    #progress {
+      margin: 8px 0;
+      overflow-wrap: anywhere;
+    }
+
+    #resetHiddenCount,
+    #clearDatabase {
+      border-color: #c62828;
+      color: #c62828;
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    #testModeStatus {
+      margin-top: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      flex: 0 0 50px;
+      width: 50px;
+      height: 28px;
+    }
+
+    .switch input {
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: #b8bdc4;
+      border-radius: 28px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .slider::before {
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      content: "";
+      transition: transform 0.2s;
+    }
+
+    .switch input:checked + .slider {
+      background: #267346;
+    }
+
+    .switch input:checked + .slider::before {
+      transform: translateX(22px);
+    }
+
+    .switch input:focus-visible + .slider {
+      outline: 3px solid #78a9ff;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 650px) {
+      body {
+        margin-top: 16px;
+        padding: 0 12px;
+      }
+
+      .totals,
+      .settings-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+	
+	.kofi {
+	  display: flex;
+	  align-items: center;
+	  justify-content:center;
+	  padding: 20px;
+	}
+  </style>
+</head>
+
+<body>
+  <h1>InnerCircle</h1>
+  <p class="tagline">Your friends. Your groups. Your follows. Your control.</p>
+
+  <p>
+    InnerCircle is a privacy-focused tool that puts you in control of your
+    Facebook feed by letting you decide which people, groups, and accounts
+    you see.
+  </p>
+
+  <p>
+    <strong>Getting started:</strong> Click <strong>Build Database</strong>
+    below to collect your Facebook friends, groups, and followed accounts.
+    Once collection is complete, InnerCircle can use that information to
+    identify trusted and untrusted posts.
+  </p>
+
+  <!-- Hidden Posts Totals -->
+  <section class="panel">
+    <h2>Hidden Posts</h2>
+
+    <div class="totals">
+      <div>
+        <div class="total-label">Total Posts Hidden</div>
+        <p id="hiddenCount" aria-live="polite">Loading…</p>
+      </div>
+
+      <div>
+        <div class="total-label">Estimated Scrolling Distance Saved</div>
+        <p id="scrollingDistance" aria-live="polite">
+          Calculating your scrolling savings…
+        </p>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="resetHiddenCount" type="button">Reset Total</button>
+    </div>
+  </section>
+
+  <!-- Database and Test Mode -->
+  <div class="settings-grid">
+    <section class="panel">
+      <h2>Local Database</h2>
+
+      <p>
+        InnerCircle opens three new tabs to collect your Facebook Friends,
+        Groups, and Following lists. It scrolls through each list automatically
+        and closes its collection tabs when finished. (Tab closes 10 seconds after scrolling stops to ensure any delayed elements are captured.) Collection can take
+        up to 10 minutes, depending on the size of your lists.
+      </p>
+
+      <p>
+        <strong>Please don't use the browser until collection finishes.</strong>
+      </p>
+
+      <div class="database-controls">
+        <div class="database-buttons">
+          <button id="build" type="button">Build Database</button>
+          <button id="clearDatabase" type="button">Clear Database</button>
+        </div>
+        <span id="status" aria-live="polite"></span>
+      </div>
+
+      <p id="progress" aria-live="polite"></p>
+
+      <p class="note">
+        Your database is stored locally on this device. Rebuild it whenever
+        you add or remove friends, join or leave groups, or follow or unfollow
+        accounts. If you do not rebuild the database, posts from new friends, follows, and groups will be hidden.
+      </p>
+    </section>
+
+    <section class="panel">
+	
+      <h2>Test Mode</h2>
+
+      <div class="setting-row">
+        <div>
+          <strong>Show testing highlights</strong>
+          <p class="setting-description">
+            Trusted posts have green outlines. Untrusted posts have red
+            outlines and Hide buttons. Posts are not automatically removed
+            while Test Mode is ON.
+          </p>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            id="testModeToggle"
+            aria-label="Test Mode"
+          >
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <p class="setting-description">
+        When Test Mode is OFF, untrusted posts are removed automatically
+        for a cleaner feed. Use Test Mode to check how posts are classified
+        before relying on automatic filtering.
+      </p>
+
+      <p id="testModeStatus" aria-live="polite">
+        Loading setting…
+      </p>
+    </section>
+	
+  </div>
+
+<div class="kofi">
+  <a href="https://ko-fi.com/A0A4MODZZ" target="_blank">
+    <img
+      height="36"
+      style="border: 0; height: 36px;"
+      src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
+      alt="Buy Me a Coffee at ko-fi.com"
+    >
+  </a>
+</div>
+
+<script src="options.js"></script>
+</body>
+</html>

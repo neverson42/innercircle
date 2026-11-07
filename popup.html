@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InnerCircle</title>
+  <style>
+    body {
+      width: 280px;
+      padding: 16px;
+      margin: 0;
+      box-sizing: border-box;
+      font: 14px Arial, sans-serif;
+      color: #222;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .description {
+      margin: 0 0 20px;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    #hiddenCount {
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    #scrollingDistance {
+      margin: 0 0 20px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      background: #f7f7f7;
+      color: #222;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #eaeaea;
+    }
+  </style>
+</head>
+<body>
+  <h1>InnerCircle</h1>
+  <p class="description">
+    Your friends. Your groups. Your follows. Your control.
+  </p>
+
+  <p id="hiddenCount" aria-live="polite">Loading…</p>
+  <p id="scrollingDistance" aria-live="polite"></p>
+
+  <button id="settings" type="button">Settings</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
