@@ -8,6 +8,10 @@ Social media feeds are increasingly shaped by algorithms, recommendations, spons
 
 [**Download InnerCircle.zip**](https://github.com/neverson42/innercircle/raw/refs/heads/main/InnerCircle.zip), extract the files to a folder, and load it as an unpacked extension.
 
+## Video Demo
+[![Introducing Innercircle](https://img.youtube.com/vi/AjYdYZq3EWY/0.jpg)](https://www.youtube.com/watch?v=AjYdYZq3EWY)  
+http://youtube.com/watch?v=AjYdYZq3EWY
+
 ## Instructions
 
 1. Download and extract `InnerCircle.zip` to a folder of your choice.
